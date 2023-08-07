@@ -101,11 +101,11 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+# Spyder cookie_stand_project settings
 .spyderproject
 .spyproject
 
-# Rope project settings
+# Rope cookie_stand_project settings
 .ropeproject
 
 # mkdocs documentation
