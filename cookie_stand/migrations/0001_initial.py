@@ -15,29 +15,21 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Thing",
+            name='CookieStand',
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("name", models.CharField(max_length=256)),
-                ("rating", models.IntegerField(blank=True, default=0)),
-                ("description", models.TextField(blank=True, default="", null=True)),
-                (
-                    "reviewer",
-                    models.ForeignKey(
-                        blank=True,
-                        null=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to=settings.AUTH_USER_MODEL,
-                    ),
-                ),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
+                ('location', models.CharField(max_length=256)),
+                ('description',
+                 models.TextField(blank=True, default='', null=True)),
+                ('hourly_sales', models.JSONField(default=list, null=True)),
+                ('minimum_customers_per_hour', models.IntegerField(default=0)),
+                ('maximum_customers_per_hour', models.IntegerField(default=0)),
+                ('average_cookies_per_sale', models.FloatField(default=0)),
+                ('owner', models.ForeignKey(blank=True, null=True,
+                                            on_delete=django.db.models.deletion.CASCADE,
+                                            to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
